@@ -1,0 +1,19 @@
+body {
+	background-color: #efefef;
+}
+.notes {
+	text-align: center;
+}
+.note {
+	color: #aaa;
+	display: inline-block;
+	font-family: sans;
+	padding: 5px;
+	border: 2px solid;
+	border-radius: 3px;
+	background-color: #fff;
+}
+.note.active {
+	color: #444;
+}
+
