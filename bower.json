@@ -1,0 +1,22 @@
+{
+  "name": "visualized-scale-modes",
+  "version": "0.0.0",
+  "authors": [
+    "Okal Otieno <okal@justokal.com>"
+  ],
+  "description": "A visualization of scale modes",
+  "main": "mode-viz.js",
+  "keywords": [
+    "music",
+    "visualization"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
