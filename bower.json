@@ -18,5 +18,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "color-scheme-js": "c0bra/color-scheme-js#~0.0.5"
+  }
 }
