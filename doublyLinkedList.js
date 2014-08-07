@@ -33,4 +33,11 @@ exports.DoublyLinkedList = function() {
 			}
 		}
 	}
+	this.getStartPosition = function(value) {
+		for(var i = 0; i < this.size; i++) {
+			if(this.getAt(i).value == value) {
+				return i
+			}
+		}
+	}
 }
