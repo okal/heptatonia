@@ -4,22 +4,33 @@
 		<title>Scale mode visualization</title>
 		<link rel='stylesheet' href='/bower_components/foundation/css/foundation.css'></link>
 		<link rel='stylesheet' href='/style.css'></link>
+		<script id='key-selector-template' type='text/x-handlebars-template'>
+			{{#each keys}}
+				<option value='{{this}}'>{{this}}</option>
+			{{/each}}
+		</script>
+		<script id='mode-selector-template' type='text/x-handlebars-template'>
+			{{#each modes}}
+				<option value='{{this}}'>{{this}}</option>
+			{{/each}}
+		</script>
+		<script id='note-template' type='text/x-handlebars-template'>
+			{{#each notes}}
+				<div class='large-1 columns note' data-note-letter='{{this}}'>
+					<p>{{this}}</p>
+				</div>
+			{{/each}}
+		</script>
 	</head>
 	<body>
 		<div class='row'>
-			<div class='columns large-12 notes'>
-				<div class='large-1 columns note active'><p>A</p></div>
-				<div class='large-1 columns note'><p>A#|B&#x266d;</p></div>
-				<div class='large-1 columns note active'><p>B</p></div>
-				<div class='large-1 columns note active'><p>C</p></div>
-				<div class='large-1 columns note'><p>C#</p></div>
-				<div class='large-1 columns note active'><p>D</p></div>
-				<div class='large-1 columns note'><p>D#</p></div>
-				<div class='large-1 columns note active'><p>E</p></div>
-				<div class='large-1 columns note active'><p>F</p></div>
-				<div class='large-1 columns note'><p>F#</p></div>
-				<div class='large-1 columns note active'><p>G</p></div>
-				<div class='large-1 columns note'><p>G#</p></div>
+			<div class='columns large-6'>
+				<select name='key'></select>
+				<select name='mode'></select>
+			</div>
+		</div>
+		<div class='row'>
+			<div id='notes-container' class='columns large-12'>
 			</div>
 		</div>
 	</body>
