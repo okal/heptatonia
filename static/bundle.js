@@ -1,99 +1,6 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/home/okal/.nvm/v0.10.15/lib/node_modules/watchify/node_modules/browserify/lib/_empty.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
-},{}],"/home/okal/lab/viz/visualized-scale-modes/doublyLinkedList.js":[function(require,module,exports){
-var ListNode = function(value) {
-	this.value = value
-}
-
-exports.DoublyLinkedList = function() {
-	this.head = undefined
-	this.tail = undefined
-	this.size = 0
-	this.push = function(value) {
-		var listNode = new ListNode(value)
-		if(this.size == 0) {
-			this.head = listNode
-			this.tail = listNode
-		}
-		this.tail.next = listNode
-		listNode.prev = this.tail
-		listNode.next = this.head
-		this.tail = listNode
-		this.head.prev = this.tail
-		this.size++
-	}
-	this.getAt = function(index) {
-		var node = this.head
-		var normalizedIndex = index % this.size
-		while(normalizedIndex < 0) {
-			normalizedIndex += this.size
-		}
-		for(var i = 0; i <= normalizedIndex; i++) {
-			if((i % this.size) == normalizedIndex) {
-				return node
-			} else {
-				node = node.next
-			}
-		}
-	}
-	this.getStartPosition = function(value) {
-		for(var i = 0; i < this.size; i++) {
-			if(this.getAt(i).value == value) {
-				return i
-			}
-		}
-	}
-}
-
-},{}],"/home/okal/lab/viz/visualized-scale-modes/main.js":[function(require,module,exports){
-var scales = require('./scales.js')
-var _ = require('underscore-node')
-var $ = require('jquery')
-var Handlebars = require('handlebars')
-
-$(function() {
-	var generateControls = function() {
-		var keySelectorTemplate = Handlebars.compile($('#key-selector-template').html())
-		var modeSelectorTemplate = Handlebars.compile($('#mode-selector-template').html())
-		$('[name=key]').html(
-			keySelectorTemplate({keys: scales.generateChromaticScale('C')})
-		)
-		$('[name=mode]').html(
-			modeSelectorTemplate({modes: Object.keys(scales.ModePatterns)})
-		)
-	}
-
-	var generateNoteView = function(key, mode) {
-		var noteTemplate = Handlebars.compile($('#note-template').html())
-		$('#notes-container').html(
-			noteTemplate({notes: scales.generateChromaticScale(key)})
-		)
-		var highlightActiveNotes = function(mode) {
-			$('.note').removeClass('active')
-			var diatonicScale = scales.generateDiatonicScale(key, mode)
-			_.each(diatonicScale, function(letter) {
-				var cssSelector = '[data-note-letter=' + letter + ']'
-				$(cssSelector).addClass('active')
-			})
-		}
-		highlightActiveNotes(mode)
-	}
-
-	var modeSelectionHandler = function() {
-		var mode = $('[name=mode]').val()
-		var key = $('[name=key]').val()
-		generateNoteView(key, mode)
-	}
-
-	generateControls()
-	generateNoteView('C', "Ionian")
-	$('[name=key], [name=mode]').on('change', modeSelectionHandler)
-})
-
-window.scales = scales
-
-
-},{"./scales.js":"/home/okal/lab/viz/visualized-scale-modes/scales.js","handlebars":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/lib/index.js","jquery":"/home/okal/lab/viz/visualized-scale-modes/node_modules/jquery/dist/jquery.js","underscore-node":"/home/okal/lab/viz/visualized-scale-modes/node_modules/underscore-node/lib/underscore.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars.js":[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 "use strict";
 /*globals Handlebars: true */
 var Handlebars = require("./handlebars.runtime")["default"];
@@ -131,7 +38,7 @@ Handlebars = create();
 Handlebars.create = create;
 
 exports["default"] = Handlebars;
-},{"./handlebars.runtime":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars.runtime.js","./handlebars/compiler/ast":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/ast.js","./handlebars/compiler/base":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/base.js","./handlebars/compiler/compiler":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/compiler.js","./handlebars/compiler/javascript-compiler":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/javascript-compiler.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars.runtime.js":[function(require,module,exports){
+},{"./handlebars.runtime":3,"./handlebars/compiler/ast":5,"./handlebars/compiler/base":6,"./handlebars/compiler/compiler":7,"./handlebars/compiler/javascript-compiler":8}],3:[function(require,module,exports){
 "use strict";
 /*globals Handlebars: true */
 var base = require("./handlebars/base");
@@ -164,7 +71,7 @@ var Handlebars = create();
 Handlebars.create = create;
 
 exports["default"] = Handlebars;
-},{"./handlebars/base":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/base.js","./handlebars/exception":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/exception.js","./handlebars/runtime":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/runtime.js","./handlebars/safe-string":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/safe-string.js","./handlebars/utils":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/base.js":[function(require,module,exports){
+},{"./handlebars/base":4,"./handlebars/exception":12,"./handlebars/runtime":13,"./handlebars/safe-string":14,"./handlebars/utils":15}],4:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -397,7 +304,7 @@ exports.log = log;var createFrame = function(object) {
   return frame;
 };
 exports.createFrame = createFrame;
-},{"./exception":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/ast.js":[function(require,module,exports){
+},{"./exception":12,"./utils":15}],5:[function(require,module,exports){
 "use strict";
 var Exception = require("../exception")["default"];
 
@@ -645,7 +552,7 @@ var AST = {
 // Must be exported as an object rather than the root of the module as the jison lexer
 // most modify the object to operate properly.
 exports["default"] = AST;
-},{"../exception":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/exception.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/base.js":[function(require,module,exports){
+},{"../exception":12}],6:[function(require,module,exports){
 "use strict";
 var parser = require("./parser")["default"];
 var AST = require("./ast")["default"];
@@ -661,7 +568,7 @@ function parse(input) {
 }
 
 exports.parse = parse;
-},{"./ast":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/ast.js","./parser":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/parser.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/compiler.js":[function(require,module,exports){
+},{"./ast":5,"./parser":9}],7:[function(require,module,exports){
 "use strict";
 var Exception = require("../exception")["default"];
 
@@ -1138,7 +1045,7 @@ exports.precompile = precompile;function compile(input, options, env) {
 }
 
 exports.compile = compile;
-},{"../exception":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/exception.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/javascript-compiler.js":[function(require,module,exports){
+},{"../exception":12}],8:[function(require,module,exports){
 "use strict";
 var COMPILER_REVISION = require("../base").COMPILER_REVISION;
 var REVISION_CHANGES = require("../base").REVISION_CHANGES;
@@ -2135,7 +2042,7 @@ JavaScriptCompiler.isValidJavaScriptVariableName = function(name) {
 };
 
 exports["default"] = JavaScriptCompiler;
-},{"../base":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/base.js","../exception":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/exception.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/parser.js":[function(require,module,exports){
+},{"../base":4,"../exception":12}],9:[function(require,module,exports){
 "use strict";
 /* jshint ignore:start */
 /* Jison generated parser */
@@ -2654,7 +2561,7 @@ function Parser () { this.yy = {}; }Parser.prototype = parser;parser.Parser = Pa
 return new Parser;
 })();exports["default"] = handlebars;
 /* jshint ignore:end */
-},{}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/printer.js":[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 "use strict";
 var Visitor = require("./visitor")["default"];
 
@@ -2798,7 +2705,7 @@ PrintVisitor.prototype.content = function(content) {
 PrintVisitor.prototype.comment = function(comment) {
   return this.pad("{{! '" + comment.comment + "' }}");
 };
-},{"./visitor":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/visitor.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/visitor.js":[function(require,module,exports){
+},{"./visitor":11}],11:[function(require,module,exports){
 "use strict";
 function Visitor() {}
 
@@ -2811,7 +2718,7 @@ Visitor.prototype = {
 };
 
 exports["default"] = Visitor;
-},{}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/exception.js":[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 "use strict";
 
 var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
@@ -2840,7 +2747,7 @@ function Exception(message, node) {
 Exception.prototype = new Error();
 
 exports["default"] = Exception;
-},{}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/runtime.js":[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -3014,7 +2921,7 @@ exports.noop = noop;function initData(context, data) {
   }
   return data;
 }
-},{"./base":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/base.js","./exception":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/safe-string.js":[function(require,module,exports){
+},{"./base":4,"./exception":12,"./utils":15}],14:[function(require,module,exports){
 "use strict";
 // Build out our basic SafeString type
 function SafeString(string) {
@@ -3026,7 +2933,7 @@ SafeString.prototype.toString = function() {
 };
 
 exports["default"] = SafeString;
-},{}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/utils.js":[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 "use strict";
 /*jshint -W004 */
 var SafeString = require("./safe-string")["default"];
@@ -3111,7 +3018,7 @@ exports.isEmpty = isEmpty;function appendContextPath(contextPath, id) {
 }
 
 exports.appendContextPath = appendContextPath;
-},{"./safe-string":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/safe-string.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/lib/index.js":[function(require,module,exports){
+},{"./safe-string":14}],16:[function(require,module,exports){
 // USAGE:
 // var handlebars = require('handlebars');
 
@@ -3138,7 +3045,7 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions[".hbs"] = extension;
 }
 
-},{"../dist/cjs/handlebars":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars.js","../dist/cjs/handlebars/compiler/printer":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/printer.js","../dist/cjs/handlebars/compiler/visitor":"/home/okal/lab/viz/visualized-scale-modes/node_modules/handlebars/dist/cjs/handlebars/compiler/visitor.js","fs":"/home/okal/.nvm/v0.10.15/lib/node_modules/watchify/node_modules/browserify/lib/_empty.js"}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/jquery/dist/jquery.js":[function(require,module,exports){
+},{"../dist/cjs/handlebars":2,"../dist/cjs/handlebars/compiler/printer":10,"../dist/cjs/handlebars/compiler/visitor":11,"fs":1}],17:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
@@ -12330,7 +12237,7 @@ return jQuery;
 
 }));
 
-},{}],"/home/okal/lab/viz/visualized-scale-modes/node_modules/underscore-node/lib/underscore.js":[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 //     Underscore.js 1.5.2
 //     http://underscorejs.org
 //     (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -13834,7 +13741,100 @@ return jQuery;
 
 }).call(this);
 
-},{}],"/home/okal/lab/viz/visualized-scale-modes/scales.js":[function(require,module,exports){
+},{}],19:[function(require,module,exports){
+var ListNode = function(value) {
+	this.value = value
+}
+
+exports.DoublyLinkedList = function() {
+	this.head = undefined
+	this.tail = undefined
+	this.size = 0
+	this.push = function(value) {
+		var listNode = new ListNode(value)
+		if(this.size == 0) {
+			this.head = listNode
+			this.tail = listNode
+		}
+		this.tail.next = listNode
+		listNode.prev = this.tail
+		listNode.next = this.head
+		this.tail = listNode
+		this.head.prev = this.tail
+		this.size++
+	}
+	this.getAt = function(index) {
+		var node = this.head
+		var normalizedIndex = index % this.size
+		while(normalizedIndex < 0) {
+			normalizedIndex += this.size
+		}
+		for(var i = 0; i <= normalizedIndex; i++) {
+			if((i % this.size) == normalizedIndex) {
+				return node
+			} else {
+				node = node.next
+			}
+		}
+	}
+	this.getStartPosition = function(value) {
+		for(var i = 0; i < this.size; i++) {
+			if(this.getAt(i).value == value) {
+				return i
+			}
+		}
+	}
+}
+
+},{}],20:[function(require,module,exports){
+var scales = require('./scales.js')
+var _ = require('underscore-node')
+var $ = require('jquery')
+var Handlebars = require('handlebars')
+
+$(function() {
+	var generateControls = function() {
+		var keySelectorTemplate = Handlebars.compile($('#key-selector-template').html())
+		var modeSelectorTemplate = Handlebars.compile($('#mode-selector-template').html())
+		$('[name=key]').html(
+			keySelectorTemplate({keys: scales.generateChromaticScale('C')})
+		)
+		$('[name=mode]').html(
+			modeSelectorTemplate({modes: Object.keys(scales.ModePatterns)})
+		)
+	}
+
+	var generateNoteView = function(key, mode) {
+		var noteTemplate = Handlebars.compile($('#note-template').html())
+		$('#notes-container').html(
+			noteTemplate({notes: scales.generateChromaticScale(key)})
+		)
+		var highlightActiveNotes = function(mode) {
+			$('.note').removeClass('active')
+			var diatonicScale = scales.generateDiatonicScale(key, mode)
+			_.each(diatonicScale, function(letter) {
+				var cssSelector = '[data-note-letter=' + letter + ']'
+				$(cssSelector).addClass('active')
+			})
+		}
+		highlightActiveNotes(mode)
+	}
+
+	var modeSelectionHandler = function() {
+		var mode = $('[name=mode]').val()
+		var key = $('[name=key]').val()
+		generateNoteView(key, mode)
+	}
+
+	generateControls()
+	generateNoteView('C', "Ionian")
+	$('[name=key], [name=mode]').on('change', modeSelectionHandler)
+})
+
+window.scales = scales
+
+
+},{"./scales.js":21,"handlebars":16,"jquery":17,"underscore-node":18}],21:[function(require,module,exports){
 var _ = require('underscore-node')
 var dll = require('./doublyLinkedList.js')
 
@@ -13891,4 +13891,4 @@ exports.generateChromaticScale = generateChromaticScale
 exports.generateDiatonicScale = generateDiatonicScale
 
 
-},{"./doublyLinkedList.js":"/home/okal/lab/viz/visualized-scale-modes/doublyLinkedList.js","underscore-node":"/home/okal/lab/viz/visualized-scale-modes/node_modules/underscore-node/lib/underscore.js"}]},{},["/home/okal/lab/viz/visualized-scale-modes/main.js"]);
+},{"./doublyLinkedList.js":19,"underscore-node":18}]},{},[20]);
