@@ -25,3 +25,7 @@ body {
 	color: #444;
 }
 
+select {
+	display: block;
+}
+
