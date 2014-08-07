@@ -32,8 +32,16 @@ $(function() {
 		highlightActiveNotes(mode)
 	}
 
+	var modeSelectionHandler = function() {
+		var mode = $('[name=mode]').val()
+		var key = $('[name=key]').val()
+		generateNoteView(key, mode)
+	}
+
 	generateControls()
 	generateNoteView('C', "Ionian")
+	$('[name=key], [name=mode]').on('change', modeSelectionHandler)
 })
+
 window.scales = scales
 
