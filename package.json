@@ -1,0 +1,19 @@
+{
+  "name": "visualized-scale-modes",
+  "version": "0.0.0",
+  "description": "A visualization of scale modes for learning",
+  "main": "main.js",
+  "dependencies": {
+    "underscore-node": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "music",
+    "visualization"
+  ],
+  "author": "Okal Otieno <okal@justokal.com>",
+  "license": "MIT"
+}
