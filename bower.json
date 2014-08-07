@@ -5,7 +5,7 @@
     "Okal Otieno <okal@justokal.com>"
   ],
   "description": "A visualization of scale modes",
-  "main": "main.js",
+  "main": "src/js/main.js",
   "keywords": [
     "music",
     "visualization"

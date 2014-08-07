@@ -2,7 +2,7 @@
   "name": "heptatonia",
   "version": "0.0.2",
   "description": "A visualization of scale modes for learning",
-  "main": "main.js",
+  "main": "src/js/main.js",
   "dependencies": {
     "handlebars": "^2.0.0-alpha.4",
     "jquery": "^2.1.1",
