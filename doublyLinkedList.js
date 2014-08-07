@@ -2,7 +2,7 @@ var ListNode = function(value) {
 	this.value = value
 }
 
-var DoublyLinkedList = function() {
+exports.DoublyLinkedList = function() {
 	this.head = undefined
 	this.tail = undefined
 	this.size = 0
