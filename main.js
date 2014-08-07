@@ -23,7 +23,6 @@ $(function() {
 		var highlightActiveNotes = function(mode) {
 			$('.note').removeClass('active')
 			var diatonicScale = scales.generateDiatonicScale(key, mode)
-			console.log(diatonicScale)
 			_.each(diatonicScale, function(letter) {
 				var cssSelector = '[data-note-letter=' + letter + ']'
 				$(cssSelector).addClass('active')

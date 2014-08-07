@@ -48,8 +48,6 @@ var generateDiatonicScale = function(key, modeName) {
 	return activeNotes
 }
 
-console.log(generateDiatonicScale("D", "Ionian"))
-console.log(generateDiatonicScale("C", "Major"))
 exports.ModePatterns = ModePatterns
 exports.notes = notes
 exports.generateChromaticScale = generateChromaticScale
