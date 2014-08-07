@@ -50,6 +50,8 @@ var generateDiatonicScale = function(key, modeName) {
 
 console.log(generateDiatonicScale("D", "Ionian"))
 console.log(generateDiatonicScale("C", "Major"))
-exports.Patterns = ModePatterns
+exports.ModePatterns = ModePatterns
 exports.notes = notes
+exports.generateChromaticScale = generateChromaticScale
+exports.generateDiatonicScale = generateDiatonicScale
 
