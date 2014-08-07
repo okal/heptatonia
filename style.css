@@ -5,27 +5,36 @@
 body {
 	font-family: sans;
 	background-color: #efefef;
+	padding-top: 4em;
 }
 
 .note {
-	color: #aaa;
 	padding: 3px;
 }
 
 .note p {
+	color: #ddd;
 	border: 2px solid;
 	border-radius: 3px;
 	background-color: #fff;
 	padding: 2px;
 	width: 100%;
 	text-align: center;
+	transition: color 2s ease;
+	-webkit-transition: color 2s ease;
 }
 
-.note.active {
+.note.active p {
+	transition: color 2s ease;
+	-webkit-transition: color 2s ease;
 	color: #444;
 }
 
 select {
+	color: #444;
+	font-family: sans;
 	display: block;
+	border: 2px solid;
+	border-radius: 3px;
 }
 
