@@ -2,7 +2,7 @@ Setup
 =====
 
 ```
-npm install browserify
+npm install -g browserify
 browserify main.js -o static/bundle.js
 python -m SimpleHTTPServer
 ```
