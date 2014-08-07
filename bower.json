@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "color-scheme-js": "c0bra/color-scheme-js#~0.0.5",
-    "foundation": "zurb/bower-foundation#~5.3.3"
+    "foundation": "zurb/bower-foundation#~5.3.3",
+    "timbre.js": "mohayonao/timbre.js"
   }
 }
