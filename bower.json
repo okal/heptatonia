@@ -20,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "color-scheme-js": "c0bra/color-scheme-js#~0.0.5"
+    "underscore": "~1.6.0"
   }
 }
