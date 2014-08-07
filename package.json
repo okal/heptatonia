@@ -4,6 +4,8 @@
   "description": "A visualization of scale modes for learning",
   "main": "main.js",
   "dependencies": {
+    "handlebars": "^2.0.0-alpha.4",
+    "jquery": "^2.1.1",
     "underscore-node": "^0.1.2"
   },
   "devDependencies": {},
