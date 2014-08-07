@@ -5,7 +5,7 @@
     "Okal Otieno <okal@justokal.com>"
   ],
   "description": "A visualization of scale modes",
-  "main": "mode-viz.js",
+  "main": "main.js",
   "keywords": [
     "music",
     "visualization"
@@ -20,6 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "underscore": "~1.6.0"
+    "color-scheme-js": "c0bra/color-scheme-js#~0.0.5",
+    "foundation": "zurb/bower-foundation#~5.3.3"
   }
 }
