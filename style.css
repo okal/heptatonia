@@ -1,18 +1,26 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
+	font-family: sans;
 	background-color: #efefef;
 }
-.notes {
-	text-align: center;
-}
+
 .note {
 	color: #aaa;
-	display: inline-block;
-	font-family: sans;
-	padding: 5px;
+	padding: 3px;
+}
+
+.note p {
 	border: 2px solid;
 	border-radius: 3px;
 	background-color: #fff;
+	padding: 2px;
+	width: 100%;
+	text-align: center;
 }
+
 .note.active {
 	color: #444;
 }
