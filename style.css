@@ -1,3 +1,9 @@
+.color-primary-0 { color: #058BB7 }	/* Main Primary color */
+.color-primary-1 { color: #46A6C6 }
+.color-primary-2 { color: #2196BD }
+.color-primary-3 { color: #036686 }
+.color-primary-4 { color: #024F69 }
+
 * {
 	box-sizing: border-box;
 }
@@ -20,21 +26,50 @@ body {
 	padding: 2px;
 	width: 100%;
 	text-align: center;
-	transition: color 2s ease;
-	-webkit-transition: color 2s ease;
+	transition: color 0.5s ease-in-out;
 }
 
 .note.active p {
-	transition: color 2s ease;
-	-webkit-transition: color 2s ease;
-	color: #444;
+	color: #058BB7;
+}
+
+.note.current p {
+	color: #fff;
+	background-color: #058BB7;
+	border-color: #058BB7;
+}
+
+#mode-chooser .columns {
+	padding: 17px;
 }
 
 select {
-	color: #444;
+	color: #024F69;
+	color: #058BB7;
 	font-family: sans;
 	display: block;
 	border: 2px solid;
 	border-radius: 3px;
 }
 
+label {
+	color: #024F69;
+	color: #058BB7;
+}
+
+#player .large-6 {
+	padding: 3px;
+}
+
+#play-button, #stop-button {
+	border-radius: 3px;
+	color: #024F69;
+	color: #058BB7;
+	background-color: transparent;
+	padding: 5px;
+	font-size: 1.5em;
+}
+
+#play-button.inactive, #stop-button.inactive {
+	color: #bbb;
+}
