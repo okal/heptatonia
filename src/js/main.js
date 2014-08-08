@@ -51,7 +51,7 @@ $(function() {
 					currentNotePosition++
 				}
 			},
-			3000)
+			2000)
 	}
 
 	generateControls()
