@@ -13793,6 +13793,8 @@ var $ = require('jquery')
 var Handlebars = require('handlebars')
 
 $(function() {
+	var currentNotePosition = 0
+	var beatKeeper
 	var generateControls = function() {
 		var keySelectorTemplate = Handlebars.compile($('#key-selector-template').html())
 		var modeSelectorTemplate = Handlebars.compile($('#mode-selector-template').html())
@@ -13826,9 +13828,34 @@ $(function() {
 		generateNoteView(key, mode)
 	}
 
+	var highlightCurrentNote = function() {
+		beatKeeper = setInterval(
+			function() { 
+				console.log(currentNotePosition)
+				$('.note.active.current').removeClass('current')
+				$($('.note.active')[currentNotePosition]).addClass('current')
+				if(currentNotePosition == 7) {
+					currentNotePosition = 0
+				} else {
+					currentNotePosition++
+				}
+			},
+			3000)
+	}
+
 	generateControls()
 	generateNoteView('C', "Ionian")
 	$('[name=key], [name=mode]').on('change', modeSelectionHandler)
+	$('#play-button').on('click', function() {
+		$(this).removeClass('inactive')
+		$('#stop-button').addClass('inactive')
+		highlightCurrentNote()
+	})
+	$('#stop-button').on('click', function() {
+		$(this).removeClass('inactive')
+		$('#play-button').addClass('inactive')
+		clearInterval(beatKeeper)
+	})
 })
 
 window.scales = scales
