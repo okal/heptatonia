@@ -23,7 +23,7 @@
 		</script>
 	</head>
 	<body>
-		<div class='row'>
+		<div id='mode-chooser' class='row'>
 			<div class='columns large-6'>
 				<label>Key
 					<select name='key'></select>
@@ -37,6 +37,18 @@
 		</div>
 		<div class='row'>
 			<div id='notes-container' class='columns large-12'>
+			</div>
+		</div>
+		<div id='player' class='row'>
+			<div class='columns large-2'>
+				<div class='columns large-6'>
+					<button id='play-button' class='inactive'>
+						&#x25B8;
+					</button>
+					<button id='stop-button'>
+						&#x25A0;
+					</button>
+				</div>
 			</div>
 		</div>
 	</body>
